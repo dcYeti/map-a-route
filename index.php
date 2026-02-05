@@ -1,3 +1,8 @@
+<?php
+// Get the constants needed, set up the SQLite3 database
+
+?>
+
 <!doctype html>
 <html class="no-js" lang="">
 <head>
@@ -609,9 +614,6 @@ var desertMapSettings = {
     };
     </script>
 </head> 
-<?php
-define('GMAPS_KEY', '');
-?>
 <body>
     <div class="container-fluid">
         <div class="row">
