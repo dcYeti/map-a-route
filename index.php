@@ -1,5 +1,11 @@
 <?php
-// Get the constants needed, set up the SQLite3 database
+// Get the constants needed
+require __DIR__ . '/env.php';
+loadEnv(__DIR__ . '/.env');
+
+// load the database
+$g_maps_key = $_ENV['GMAPS_API_KEY'];
+$debug      = $_ENV['APP_DEBUG'];
 
 ?>
 
@@ -1463,7 +1469,7 @@ var desertMapSettings = {
     </script>
 
    <!-- Call the initMap() function once the Google Maps API is loaded -->
-   <script async defer src="https://maps.googleapis.com/maps/api/js?key=<?php echo GMAPS_KEY; ?>&callback=initMap"></script>
+   <script async defer src="https://maps.googleapis.com/maps/api/js?key=<?php echo $g_maps_key; ?>&callback=initMap"></script>
     
 </div>
   </body>
