@@ -1,7 +1,7 @@
 <?php
 
 // Path to SQLite database file
-$dbPath = __DIR__ . '/db.sqlite';
+$dbPath = __DIR__ . 'db/map_route.db';
 
 try {
     // Create / open the SQLite database

@@ -7,6 +7,30 @@ loadEnv(__DIR__ . '/.env');
 $g_maps_key = $_ENV['GMAPS_API_KEY'];
 $debug      = $_ENV['APP_DEBUG'];
 
+// Get the path (everything after domain.com/)
+$uri = parse_url($_SERVER['REQUEST_URI'], PHP_URL_PATH);
+
+// Remove leading/trailing slashes
+$route = trim($uri, '/');
+
+// Default route (e.g. domain.com → home.php)
+if ($route === '') {
+    $route = 'home';
+}
+
+// Prevent directory traversal (security basic)
+$route = basename($route);
+
+// Build file path
+$file = __DIR__ . '/' . $route . '.php';
+
+// Load file if it exists, otherwise 404
+if (file_exists($file)) {
+    require $file;
+} else {
+    http_response_code(404);
+    echo "404 - Page not found";
+}
 ?>
 
 <!doctype html>
@@ -14,7 +38,7 @@ $debug      = $_ENV['APP_DEBUG'];
 <head>
     <meta charset="utf-8">
     <meta http-equiv="x-ua-compatible" content="ie=edge">
-    <title>ET Highway</title>
+    <title>Map a Route</title>
     <meta name="description" content="${2}">
     <meta name="viewport" content="width=device-width, initial-scale=1">
 
@@ -75,14 +99,9 @@ $debug      = $_ENV['APP_DEBUG'];
         ['Tesla Supercharger, Watkins Mill Rd #690, Gaithersburg, MD','charger',[]],
     ];
 
-
-
-
     //Put in special conditions by using a string search.  Object should be {search: <string>, disp: <message> }
-    var special_stops = [
-        
+    var special_stops = [        
     ]
-
 
     var min_distance = 70;  //Minimum distance car needs to go
     var max_distance = 150; //Longest leg for driving
