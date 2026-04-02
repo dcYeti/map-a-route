@@ -1,5 +1,5 @@
 <body>
-<h1>Projects</h1>
+<h1>Projects List</h1>
 <body>
     <div class="container-fluid">
         <div class="row">

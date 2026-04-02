@@ -97,7 +97,7 @@ $routes = [
     },
 
     'projects' => function () {
-        render('projects/index', ['pageTitle' => 'Projects List']);
+        render('projects/list', ['pageTitle' => 'Projects List']);
     },
 
     'projects/{id}' => function ($id) {
