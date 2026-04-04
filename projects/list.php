@@ -4,8 +4,7 @@
     <div class="container-fluid">
         <div class="row">
             <div class="col-12 col-sm-10 col-md-11">
-                <div id="map" style="width:100%;height:1210px;"></div>  
-                <br/><br/>
+                <div id="projects-list"></div>  
                 <div>
                     <div class="container-fluid">
                         <div class="row">
@@ -49,5 +48,16 @@
                 </select>          
             </div>
         </div>
+    </div>
+    <div>
+    <script>
+    $(document).ready(function(){
+        
+
+
+
+
+    })    
+    </script>
     </div>
     <!-- Footer.php will be mostly javascript and will close all the HTML-->
