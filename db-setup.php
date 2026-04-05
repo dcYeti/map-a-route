@@ -2,7 +2,7 @@
 
 // Path to SQLite database file
 $dbPath = __DIR__ . '/map_routes.db';
-echo 'what is db path ' . $dbPath;
+echo "Attempting to create DB in $dbPath. \n";
 
 try {
     // Create / open the SQLite database
@@ -18,6 +18,9 @@ try {
         CREATE TABLE IF NOT EXISTS projects (
             project_id INTEGER PRIMARY KEY AUTOINCREMENT,
             project_name TEXT NOT NULL,
+            project_desc TEXT,
+            project_icon TEXT,
+            project_color TEXT,
             created_dt DATETIME DEFAULT CURRENT_TIMESTAMP,
             modified_dt DATETIME DEFAULT CURRENT_TIMESTAMP,
             last_accessed_dt DATETIME DEFAULT CURRENT_TIMESTAMP,
@@ -51,7 +54,7 @@ try {
      * COORDINATES Table (Basically what each button does)
     */
     $db->exec("
-        CREATE TABLE IF NOT EXISTS groups (
+        CREATE TABLE IF NOT EXISTS coordinates (
             coord_id INTEGER PRIMARY KEY AUTOINCREMENT,
             project_id_FK INTEGER NOT NULL,
 
@@ -70,9 +73,7 @@ try {
                 REFERENCES projects(project_id)
                 ON DELETE CASCADE
         );
-    ");
-    
-    
+    ");    
     
     /*
      * GROUPS Table (Basically what each button does)

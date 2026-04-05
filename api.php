@@ -8,10 +8,10 @@ require_once __DIR__ . '/classes/Projects.php';
 class ApiRouter
 {
     protected array $map = [
-        'projects_get_projects'   => [Projects::class, 'getProjects'],
-        'projects_edit_project'    => [Projects::class, 'editProject'],
-        'projects_save_project'    => [Projects::class, 'saveProject'],
-        'projects_delete_project'  => [Projects::class, 'deleteProject'],
+        'projects_get_projects'     => [Projects::class, 'getProjects'],
+        'projects_edit_project'     => [Projects::class, 'editProject'],
+        'projects_save_project'     => [Projects::class, 'saveProject'],
+        'projects_delete_project'   => [Projects::class, 'deleteProject'],
     ];
 
     public function handle(): void

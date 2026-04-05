@@ -1,6 +1,4 @@
 <body>
-<h1>Projects List</h1>
-<body>
     <div class="container-fluid">
         <div class="row">
             <div class="col-12 col-sm-10 col-md-11">
@@ -52,7 +50,16 @@
     <div>
     <script>
     $(document).ready(function(){
-        
+    const formData = new FormData();
+    formData.append('system_action', 'projects_get_projects');
+
+    fetch('/api.php', {
+        method: 'POST',
+        body: formData,
+    })
+    .then(data => {
+        console.log(data);
+    });    
 
 
 

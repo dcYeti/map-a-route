@@ -2,9 +2,18 @@
 declare(strict_types=1);
 
 class Projects
-{
+{ 
+    
     public function getProjects(array $request): array
     {
+        
+        require(__DIR__ . '/../includes/db.php');
+        $db = new DB();
+
+        $sql = 'SELECT project_id, project_name, last_accessed_dt, created_dt FROM projects ORDER BY last_accessed_dt DESC ';
+
+        //$res = $db->run($sql,[]);
+
         // Example data
         return [
             ['id' => 1, 'name' => 'Project Alpha', 'status' => 'active'],
